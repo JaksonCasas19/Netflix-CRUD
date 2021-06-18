@@ -1,0 +1,63 @@
+﻿@{ 
+    ViewData["Title"] = "CRUD Movie";
+}
+<script>
+    $(document).ready(function () {
+        $("#myinput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#cardOk .laptDa").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+            });
+        });
+    });
+</script>
+<style>
+    td {
+        color: white;
+    }
+</style>
+<div class="container">
+    <br />
+   <center><h1>CRUD Movie</h1></center> 
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>
+                    Titulo
+                </th>
+                <th>
+                    Año
+                </th>
+                <th>
+                    Categoria
+                </th>
+                <th>
+                    <a class="btn btn-danger" asp-action="AddOrEdit"><i class="fas fa-plus"></i> Pelicula</a>
+                </th>
+            </tr>
+        </thead>
+        <tbody  id="cardOk" class="laptDa">
+            @for (int i = 0; i < Model.Rows.Count; i++)
+            {
+
+                <tr id="cardOk" class="laptDa">
+                    <td>
+                        @Model.Rows[i]["Titulo"]
+                    </td>
+                    <td>
+                        @Model.Rows[i]["YearMovie"]
+                    </td>
+                    <td>
+                        @Model.Rows[i]["Categoria"]
+                    </td>
+                    <td>
+                        <a asp-action="AddOrEdit" asp-route-id="@Model.Rows[i]["IdPelicula"]">Detalle</a> |
+
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+</div>
+

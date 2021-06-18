@@ -1,0 +1,38 @@
+﻿@{
+    ViewData["Title"] = "Mi lista";
+}
+<style>
+    h3 {
+        color: white;
+    }
+</style>
+
+
+<div class="container">
+    <br />
+    <div class="section-header">
+        <h3>@ViewData["Title"] <i class="fas fa-star"></i></h3>
+    </div>
+    <br />
+    <table class="table table-dark table-striped">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Pelicula</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Rows.Count; i++)
+            {
+            <tr>
+                <th scope="row">@Model.Rows[i]["IdPelicula"]</th>
+                <td>@Model.Rows[i]["Titulo"]</td>
+                <td style="width:  15.33%"><a asp-action="Delete" asp-route-id="@Model.Rows[i]["IdPelicula"]" class="btn btn-danger">Eliminar</a></td>
+            </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+

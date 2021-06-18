@@ -1,0 +1,90 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+@model MovieGR8.Models.ViewModel.UsuarioVM
+
+<style>
+    .wrapper {
+        margin-top: 80px;
+        margin-bottom: 80px;
+    }
+
+    .form-signin {
+        max-width: 380px;
+        padding: 15px 35px 45px;
+        margin: 0 auto;
+        background-color: #1a1a1a;
+        border: 1px solid rgba(0,0,0,0.1);
+    }
+
+
+    .checkbox {
+        font-weight: normal;
+    }
+
+    .form-control {
+        position: relative;
+        font-size: 16px;
+        height: auto;
+        padding: 10px;
+    }
+
+    input[type="text"] {
+        margin-bottom: -1px;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        width: 300px;
+    }
+
+    input[type="password"] {
+        margin-bottom: 20px;
+        border-top-left-radius: 0;
+        border-top-right-radius: 0;
+        width: 300px;
+    }
+</style>
+
+
+<div class="container animated fadeIn">
+    <div class="wrapper">
+        <form asp-action="Login" asp-controller="Login" id="Login" class="form-signin">
+            <h1 class="form-signin-heading">Iniciar Sesión</h1>
+            <br />
+            <div class="row">
+                <div class="form-group col-md-10">
+                    <input type="text" asp-for="Nombre" class="form-control" placeholder="Usuario" />
+                    <span asp-validation-for="Nombre" class="span-validation"></span>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-10">
+                    <input type="password" asp-for="Clave" class="form-control" placeholder="Contraseña" />
+                    <span asp-validation-for="Clave" class="span-validation"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col">
+                    <label class="checkbox">
+                        <input type="checkbox" value="remember-me" id="rememberMe" name="rememberMe"> Recordar
+                    </label>
+                </div>
+                <div class="col-1">
+
+                </div>
+                <div class="col-6">
+                    <label>
+                        <a href="~/Home/Registro">Crear una cuenta</a>
+                    </label>
+                </div>
+            </div>
+
+
+
+            <button class="btn btn-lg btn-danger btn-block" type="submit">Iniciar</button>
+        </form>
+    </div>
+
+</div>

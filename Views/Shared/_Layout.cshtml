@@ -1,0 +1,278 @@
+﻿@using MovieGR8.Helper
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - MovieGR8</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/lightslider.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <link rel="stylesheet" href="https://raw.githubusercontent.com/daneden/animate.css/master/animate.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
+    <meta name="theme-color" content="#E50914">
+    <link rel="icon" type="image/png" href="https://paulasaguz.github.io/Netflix/images/N.png" />
+    <link rel="stylesheet" href="~/css/fantasy.css" />
+    <script src="~/js/lightslider.js"></script>
+    <script src="https://kit.fontawesome.com/a4245814cd.js" crossorigin="anonymous"></script>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+</head>
+<body>
+    <!--Navegación-->
+    <nav>
+        <a asp-controller="Home" asp-action="Index" class="logo">
+            <!--Logo-->
+            <img src="https://logos-marcas.com/wp-content/uploads/2020/04/Netflix-Logo.png" alt="Alternate Text" />
+        </a>
+        <!--Menu responsive-->
+        <!--AQUI ME QUEDA 35:39-->
+        <input type="checkbox" class="menu-btn" id="menu-btn" />
+        <label class="menu-icon" for="menu-btn">
+            <span class="nav-icon"></span>
+        </label>
+        <ul class="menu" style="z-index: 99999;">
+            <li><a asp-controller="Home" asp-action="Index">Inicio</a></li>
+            <li><a asp-controller="Pelicula" asp-action="Index">Peliculas</a></li>
+            @if (User.IsInRole("Administrador"))
+            {
+                <li><a asp-controller="Posts" asp-action="Index">Posts</a></li>
+            }
+            else
+            {
+
+            }
+            <li><a asp-controller="Pelicula" asp-action="Favorito">Mi Lista</a></li>
+            <li><a asp-controller="Home" asp-action="Privacy">Privacidad</a></li>
+        </ul>
+        <!--Search-->
+        <div class="search" style="z-index: 99999;">
+            <input type="text" class="inputsearch" placeholder="Buscar" id="myinput"/>
+            <!--search-->
+            <i class="fas fa-search"></i>
+        </div>
+
+        @if (!User.Identity.IsAuthenticated)
+        {
+            <!-- <a class="btn btn-danger" asp-controller="Login" asp-action="Index" id="Registro"role="button">Login</a>-->
+
+        }
+        else
+        {
+
+            <div class="btn-group" style="z-index: 99999;">
+                <div class="dropdown">
+                    <button class="dropbtn"><i class="fab fa-superpowers"></i> @SessionHelper.GetName(User)</button>
+                    <div class="dropdown-content">
+                        <a asp-controller="Login" asp-action="Logout">Cerrar</a>
+                    </div>
+                </div>
+                <!--<img src="~/img/profileNetflix.png" alt="Alternate Text" width="50px" />-->
+
+            </div>
+        }
+
+
+
+
+
+        <!-- <a href="" class="btn btn-secondary ms-auto" style="color:white;" hreflang="ar">@@SessionHelper.GetName(User)</a>-->
+        <!--<img src="~/img/profileNetflix.png" alt="Alternate Text" width="40px" />-->
+    </nav>
+
+
+
+
+
+    <!--
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">MovieGR8</a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>-->
+    <div>
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+
+
+    <!--
+    <footer class="footer text-muted">
+        <div class="container">
+            &copy; 2021 - Jakson Casas MovieGR8 - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>-->
+    <!--
+
+    <footer class="footer py-5" id="footer-netflix">
+        <div class="row">
+            <div class="col-12 col-md">
+                <img src="https://logos-marcas.com/wp-content/uploads/2020/04/Netflix-Logo.png" alt="Alternate Text" width="60px;" />
+                <small class="d-block mb-3 text-muted">&copy;JaksonCasas 2021</small>
+            </div>
+            <div class="col-6 col-md">
+                <h5>Features</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="secondary" href="#">Cool stuff</a></li>
+                    <li><a class="link-secondary" href="#">Random feature</a></li>
+                    <li><a class="link-secondary" href="#">Team feature</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <h5>Resources</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="link-secondary" href="#">Resource name</a></li>
+                    <li><a class="link-secondary" href="#">Resource</a></li>
+                    <li><a class="link-secondary" href="#">Another resource</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <h5>Resources</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="link-secondary" href="#">Business</a></li>
+                    <li><a class="link-secondary" href="#">Education</a></li>
+                    <li><a class="link-secondary" href="#">Government</a></li>
+                </ul>
+            </div>
+            <div class="col-6 col-md">
+                <h5>About</h5>
+                <ul class="list-unstyled text-small">
+                    <li><a class="link-secondary" href="#">Team</a></li>
+                    <li><a class="link-secondary" href="#">Locations</a></li>
+                    <li><a class="link-secondary" href="#">Privacy</a></li>
+                </ul>
+            </div>
+        </div>
+    </footer>-->
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <div class="alert alert-info">
+            Usuario Autenticado:
+            <ul>
+                <li>@SessionHelper.GetNameIdentifier(User)</li>
+                <li>@SessionHelper.GetName(User)</li>
+                <li>@SessionHelper.GetValue(User, "Email")</li>
+                <li>@SessionHelper.GetValue(User, "Dato")</li>
+            </ul>
+        </div>
+    }
+    else
+    {
+        <div class="alert alert-danger">
+            Usuario no autenticado
+        </div>
+    }
+
+
+
+    <!-- <script src="~/lib/jquery/dist/jquery.min.js"></script>-->
+
+
+
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script>
+        $(document).on('submit', '#Registrar', function (e) {
+            alert(2);
+            e.preventDefault();
+            $.ajax({
+                beforeSend: function () {
+                    $('#Registrar button[type=submit]').prop('disabled', true);
+                },
+                type: this.method,
+                url: this.action,
+                data: $(this).serialize(),
+                success: function (data) {
+                    alert('Se registro con exito');
+                },
+                error: function (xhr, status) {
+                    alert(xhr.responseJSON.Message);
+                },
+                complete: function () {
+                    $('#Registrar button[type=submit]').prop('disabled', false);
+                }
+            });
+
+        });
+
+
+        $(document).on('submit', '#Login', function (e) {
+            e.preventDefault();
+            $.ajax({
+                beforeSend: function () {
+                    $('#Registrar button[type=submit]').prop('disabled', true);
+                },
+                type: this.method,
+                url: this.action,
+                data: $(this).serialize(),
+                success: function (data) {
+                    /*alert('Bienvenido ' + data.nombre);*/
+                    window.location = '/Home';
+                },
+                error: function (xhr, status) {
+                    alert(xhr.responseJSON.Message);
+
+                },
+                complete: function () {
+                    $('#Registrar button[type=submit]').prop('disabled', false);
+                }
+            });
+        });
+
+    </script>
+
+
+
+    <script>
+        $(document).ready(function () {
+            var autoplaySlider = $('#autoWidth').lightSlider({
+                autoWidth: true,
+                auto: true,
+                loop: true,
+                pauseOnHover: true,
+                onSliderLoad: function () {
+                    $('#autoWidth').removeClass('cS-hidden');
+                }
+            });
+            $('#total').text(autoplaySlider.getTotalSlideCount());
+        });
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            $('#autoWidth2,#autoWidth3').lightSlider({
+                autoWidth: true,
+                loop: true,
+                onSliderLoad: function () {
+                    $('#autoWidth').removeClass('cS-hidden');
+                }
+            });
+        });
+    </script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

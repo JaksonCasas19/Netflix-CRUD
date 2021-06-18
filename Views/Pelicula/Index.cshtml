@@ -1,0 +1,70 @@
+﻿@{ 
+    ViewData["Title"] = "Lista de pelicula";
+}
+
+<script>
+    $(document).ready(function () {
+        $("#myinput").on("keyup", function () {
+            var value = $(this).val().toLowerCase();
+            $("#card div").filter(function () {
+                $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+            });
+        });
+    });
+</script>
+<style>
+    .img-area {
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .single-img {
+        padding: 0 20px 20px;
+    }
+
+    .picture:hover {
+        opacity: .5;
+        transition: .9s;
+    }
+    h3{
+        color:white;
+    }
+    .card {
+        background-color: #212121;
+    }
+</style>
+
+
+
+<div class="container">
+    <br />
+    <div class="wrapper">
+        <div class="section-header">
+            <h3>@ViewData["Title"]</h3>
+        </div>
+        <br />
+        <center>
+            <div class="img-area" id="card">
+                @for (int i = 0; i < Model.Rows.Count; i++)
+                {
+                    <div class="single-img">
+                        <div class="card">
+                            <a asp-action="Detalle" asp-route-id="@Model.Rows[i]["IdPelicula"]" style=" text-decoration-line: none;">
+                                <img class="picture" src=" @Model.Rows[i]["Thumbnail"]" alt="" width="230" height="310">
+                                <p>@Model.Rows[i]["Titulo"]</p>
+                            </a>
+                        </div>
+                    </div>
+                }
+            </div>
+
+        </center>
+
+    </div>
+
+</div>
+
+

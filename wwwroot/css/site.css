@@ -1,0 +1,673 @@
+﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
+for details on configuring this project to bundle and minify static web assets. */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Ubuntu&display=swap');
+:root {
+    --main-color: #c0392b;
+
+    --space-top: 30px;
+}
+a.navbar-brand {
+  white-space: normal;
+  text-align: center;
+  word-break: break-all;
+}
+
+/* Provide sufficient contrast against white background */
+a {
+    color: #0366d6;
+    text-decoration: none;
+    text-decoration-line: none;
+}
+
+.btn-primary {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
+  color: #fff;
+  background-color: #1b6ec2;
+  border-color: #1861ac;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+    font-size: 14px;
+    background-color: #0f0f0f;
+}
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.border-top {
+  border-top: 1px solid #e5e5e5;
+}
+.border-bottom {
+  border-bottom: 1px solid #e5e5e5;
+}
+
+.box-shadow {
+  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+button.accept-policy {
+  font-size: 1rem;
+  line-height: inherit;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+
+h1, h5, p, label {
+    color: #c2c2c2;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+
+/*Style for movie*/
+
+body {
+  /* Margin bottom by footer height */
+  margin:0px;
+  padding:0px;
+  background-color: rgba(151,151,151,0.03);/*rgba(151,151,151,0.03)*/
+}
+
+*{
+    box-sizing:border-box;
+    margin:0px;
+    padding:0px;
+}
+
+ul{
+    list-style:none;
+}
+
+a{
+    text-decoration:none;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    border: 1px solid rgba(0,0,0,0.04);
+    background-color: #232323;
+    
+}
+
+.logo img{
+    height:35px;
+}
+
+nav .menu{
+    display: flex;
+}
+
+nav .menu li a{
+    height:40px;
+    line-height:43px;
+    margin:0px;
+    padding: 0px 22px;
+    display: flex;
+    font-size:0.8rem;
+    font-weight:500;
+    color:#585858;
+    letter-spacing:1px;
+}
+
+.search {
+    width: 250px;
+    height: 40px;
+    background-color: rgba(112,112,112,0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    padding: 0px 20px;
+}
+.inputsearch::placeholder {
+    color: #303030;
+}
+
+.search input {
+    width: 100%;
+    height: 30px;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    color: #d4d4d4;
+}
+
+.search i{
+    color: #3a3a3a;
+}
+
+#Registro {
+    background-color: #E50914;
+    color: #fff;
+}
+
+#Registro:hover {
+     background-color: #d10202;
+     transition: all ease 0.2s;
+}
+
+nav .menu li a:hover {
+    background-color: #E50914;
+    text-decoration:none;
+    color: #fff;
+    box-shadow: 5px 10px 30px rgba(53,53,53,0.1);
+    transition: all ease 0.2s;
+}
+
+.span-validation {
+    color: #b81111;
+    padding:0px;
+    margin:0px;
+}
+
+#main {
+    padding-top: 0px;
+    /*z-index: 2;*/
+    position: absolute;
+    top: 590px;
+    background: transparent;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    padding: 10px;
+    bottom: 0px;
+    /*#fff*/
+}
+
+.showcase-box{
+    width:430px;
+    height:250px;
+    box-shadow:5px 15px 30px rgba(0,0,0,0.3);
+    border-radius:10px;
+    margin:0px 20px 10px 20px;
+    overflow:hidden;
+}
+
+.showcase-box img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:top;
+}
+
+.showcase-heading {
+    padding-left: 30px;
+    font-weight: 500;
+    letter-spacing: 1px;
+    font-size: 2.2rem;
+    color: #c2c2c2;
+}
+
+.cs-hidden {
+    overflow: hidden;
+}
+
+#latest{
+    border-top:1px solid rgba(53,53,53,0.1);
+    margin-top:150px;
+}
+
+.latest-heading {
+    margin: 15px 30px 0px 30px;
+    font-weight: 500;
+    font-size: 1.3rem;
+    color: #979797;
+}
+.latest-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.2);
+    margin: 20px 10px;
+    border-radius: 10px;
+    overflow: hidden;
+    width: 200px;
+    background: rgb(23,23,23);
+    background: linear-gradient(0deg, rgba(23,23,23,1) 0%, rgba(23,23,23,1) 47%, rgba(57,57,57,1) 100%);
+}
+.latest-box:hover {
+     transform: translateY(-10px);
+     transition: all ease 0.2s;
+}
+
+.latest-b-img{
+    width:100%;
+    height:270px;
+}
+
+.latest-b-img img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
+
+.latest-b-text strong{
+    color:#fff;
+    margin:0px;
+}
+.latest-b-text{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    margin:10px;
+}
+
+.latest-b-text p{
+    color: #979797;
+    margin:0px;
+}
+
+.lSPager {
+    display: none;
+    opacity: 0;
+}
+
+
+#footer-netflix {
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+   
+}
+
+
+.dropbtn {
+    background-color: #363636;
+    color: white;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+    }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1
+        }
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #E50914;
+}
+
+nav .menu-btn {
+    display: none;
+}
+
+
+.match {
+    color: #10c783;
+    font-weight: 600;
+    font-size:1rem;
+}
+
+
+.pelicula-principal video:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+    background: linear-gradient(to top,rgba(104,255,0, 0.4),rgba(0, 0,0, 0));
+}
+
+.pelicula-principal video {
+    width: 100%;
+    min-height: 40rem;
+    height: 50px;
+    position: absolute;
+    object-fit: cover;
+    z-index: -1;
+}
+  
+
+.pelicula-principal {
+    font-size: 16px;
+    min-height: 40.62em;
+    color: #fff;
+  
+    background-position: center center;
+    background-size: cover;
+    margin-bottom: 3.12em;
+    display: flex;
+    align-items: end;
+}
+
+    .pelicula-principal .contenedorNetflix {
+        margin: 0 auto;
+        padding-left: 20px;
+        margin-top: 9.25em;
+    }
+
+    .pelicula-principal .titulo {
+        font-weight: 600;
+        font-size: 3.12em;
+        margin-bottom: 0.4em;
+    }
+
+    .pelicula-principal .descripcion {
+        font-weight: normal;
+        z-index: 1;
+        font-size: 1em;
+        line-height: 1.75em;
+        max-width: 50%;
+        margin-bottom: 1.25em;
+    }
+
+    .pelicula-principal .boton {
+        background: rgba(0,0,0, 0.5);
+        border: none;
+        border-radius: 0.31em;
+        padding: 0.93em 1.87em;
+        color: #fff;
+        margin-right: 1.25em;
+        cursor: pointer;
+        transition: .3s ease all;
+        font-size: 1.12em;
+    }
+
+        .pelicula-principal .boton:hover {
+            background: #fff;
+            color: #000;
+        }
+
+        .pelicula-principal .boton i {
+            margin-right: 1.25em;
+        }
+
+@media(max-width:1100px) {
+    .btn-group {
+        display: none;
+    }
+    .btn-netflix {
+        font-size: 0.7em;
+    }
+
+    nav {
+        justify-content: space-between;
+        height: 70px;
+        padding: 0px 10px;
+    }
+    nav .menu{
+        display:none;
+        position:absolute;
+        top:65px;
+        left:0px;
+        background:black;
+        border-bottom:4px solid #242424;
+        width:100%;
+        padding:0px;
+        margin:0px;
+
+    }
+    .menu li{
+        width:100%;
+    }
+    nav .menu li a{
+        width:100%;
+        height:40px;
+        align-items:center;
+        margin:0px;
+        padding:25px;
+        border:1px solid rgba(38,38,38,0.03);
+    }
+
+    nav .menu-icon{
+        cursor:pointer;
+        float:right;
+        padding:28px 20px;
+        position:relative;
+        user-select:none;
+        display:block;
+    }
+  nav .menu-icon .nav-icon {
+         background-color: red;
+            display: block;
+            height: 2px;
+            position: relative;
+            transition: background 0.2s ease-out;
+            width: 18px;
+        }
+            nav .menu-icon .nav-icon:before,
+            nav .menu-icon .nav-icon:after {
+                background: red;
+                content: '';
+                display: block;
+                height: 100%;
+                position: absolute;
+                transition: all ease-out 0.2s;
+                width: 100%;
+            }
+    nav .menu-icon .nav-icon:before{
+        top:5px;
+    }
+    nav .menu-icon .nav-icon:after {
+        top: -5px;
+     }
+    nav .menu-btn:checked ~ .menu-icon .nav-icon{
+        background:transparent;
+     }
+    nav .menu-btn:checked ~ .menu-icon .nav-icon:before{
+        transform: rotate(-45deg);
+        top:0;
+    }
+    nav .menu-btn:checked ~ .menu-icon .nav-icon:after {
+         transform: rotate(45deg);
+         top: 0;
+     }
+     nav .menu-btn{
+          display:none;
+      }
+   nav .menu-btn:checked ~ .menu{
+       display:block;
+   }
+
+
+
+        .pelicula-principal .contenedorNetflix {
+            margin: 0 auto;
+            padding-left: 7px;
+            width:100%;
+            margin-top: 9.25em;
+        }
+
+        .pelicula-principal .descripcion {
+            width: 550px;
+            overflow: hidden;
+            height: 90px;
+            line-height: 14px;
+            font-size: 10px;
+        }
+
+
+    .showcase-box {
+        width: 370px;
+        height: 200px;
+    }
+    #main {
+        top:495px;
+    }
+    #latest {
+        margin-top:0px;
+    }
+ }
+
+
+
+/*Banner Special*/
+
+
+.hero-slide-item {
+    padding-top: 40%;
+    position: relative;
+    overflow: hidden;
+}
+
+    .hero-slide-item img {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+
+.hero-slide-item-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+    display: flex;
+}
+
+.item-content-wraper {
+    padding-left: 5rem;
+    width: 40%;
+    background-color: rgba(0, 0, 0, 0.8);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+
+    .item-content-wraper::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 100%;
+        width: 50%;
+        height: 100%;
+        background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0));
+    }
+
+.item-content-title {
+    font-size: 5rem;
+    line-height: 5rem;
+    font-weight: 900;
+}
+
+.movie-infos {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: calc(var(--space-top) / 2);
+}
+
+.movie-info {
+    display: flex;
+    align-items: center;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+    .movie-info span {
+        margin-left: 5px;
+    }
+
+    .movie-info i {
+        color: var(--main-color);
+    }
+
+    .movie-info ~ .movie-info {
+        margin-left: 5px;
+    }
+
+.item-content-description {
+    font-size: 1.15rem;
+    margin-top: var(--space-top);
+    line-height: 1.5rem;
+}
+
+.item-action {
+    margin-top: var(--space-top);
+}
+
+.section-header {
+    margin-bottom: 0px;
+    margin-left:20px;
+    padding-left: 20px;
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: 700;
+    border-left: 4px solid red;
+    display: flex;
+    align-items: center;
+}
+
+
+@media(max-width:1100px) {
+    .item-content-description{
+        display:none;
+    }
+    .item-content-title {
+        font-size: 1rem;
+        line-height: 1rem;
+    }
+    .btn {
+        font-size: 0.6rem;
+    }
+    .item-content-wraper{
+        padding-left:10px;
+    }
+
+    .pelicula-principal video {
+        height: 10px;
+        min-height: 46rem;
+    }
+  
+ }

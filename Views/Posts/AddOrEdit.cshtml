@@ -1,0 +1,84 @@
+﻿@model MovieGR8.Models.PeliculaModel
+
+@{
+    ViewData["Title"] = Model.IdPelicula == 0 ? "Crear Pelicula" : "Actualizar Pelicula";
+}
+
+<style>
+    .col-md-6 {
+        background-color: #212121;
+    }
+    h3{
+        color:white;
+    }
+</style>
+<br />
+<div class="container">
+    <div class="row d-flex justify-content-center">
+        <div class="col-md-6">
+            <br />
+            <h3>@ViewData["Title"]</h3>
+            <form asp-action="AddOrEdit" autocomplete="off">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="IdPelicula" />
+                <div class="form-group">
+                    <label asp-for="Titulo" class="control-label"></label>
+                    <input asp-for="Titulo" class="form-control" />
+                    <span asp-validation-for="Titulo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Descripcion" class="control-label"></label>
+                    <input asp-for="Descripcion" class="form-control" />
+                    <span asp-validation-for="Descripcion" class="text-danger"></span>
+                </div>
+
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="YearMovie" class="control-label"></label>
+                        <input asp-for="YearMovie" class="form-control" />
+                        <span asp-validation-for="YearMovie" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label asp-for="Director" class="control-label"></label>
+                        <input asp-for="Director" class="form-control" />
+                        <span asp-validation-for="Director" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <label asp-for="Company" class="control-label"></label>
+                        <input asp-for="Company" class="form-control" />
+                        <span asp-validation-for="Company" class="text-danger"></span>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <!-- <label asp-for="Categoria" class="control-label"></label>
+    <input asp-for="Categoria" class="form-control" />
+    <span asp-validation-for="Categoria" class="text-danger"></span>-->
+
+                        <label asp-for="Categoria" class="control-label"></label>
+                        <select class="form-control select2-primary" asp-for="Categoria" asp-items="ViewBag.MiListado" ></select>
+
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="TrailerVideo" class="control-label"></label>
+                    <input asp-for="TrailerVideo" class="form-control" />
+                    <span asp-validation-for="TrailerVideo" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Thumbnail" class="control-label"></label>
+                    <input asp-for="Thumbnail" class="form-control" />
+                    <span asp-validation-for="Thumbnail" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <a class="btn btn-secondary" asp-action="Index">Cancelar</a>
+                    <input type="submit" value="Guardar" class="btn btn-primary" />
+
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
