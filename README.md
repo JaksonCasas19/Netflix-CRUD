@@ -45,7 +45,7 @@ Netflix CRUD ASP.NET Core MVC without Enitity Framework
 
 ![Netflix](img/Registro_Pelicula.png)
 
-<h3 align="center"><strong>Screen 08 - Responsive</strong></h3>
+<h3 align="center"><strong>Screen 08 - Mobile version</strong></h3>
 
 ![Netflix](img/MobileNet_Pelicula.png)
 
