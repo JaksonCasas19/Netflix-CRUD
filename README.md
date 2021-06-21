@@ -14,7 +14,6 @@ Netflix CRUD ASP.NET Core MVC without Enitity Framework
 
 
 
-
 ## Screenshots
 <h3 align="center"><strong>Screen 01 - Pantalla de Inicio</strong></h3>
 
