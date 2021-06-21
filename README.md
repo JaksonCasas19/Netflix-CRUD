@@ -9,10 +9,7 @@ Netflix CRUD ASP.NET Core MVC without Enitity Framework
 		<b>Para la producción de este proyecto se utilizaron: .NET Core, JQuery, Bootstrap y SQL Server.</b>
 	</p>
 	<br>
-
 </div>
-
-
 
 ## Screenshots
 <h3 align="center"><strong>Screen 01 - Pantalla de Inicio</strong></h3>
